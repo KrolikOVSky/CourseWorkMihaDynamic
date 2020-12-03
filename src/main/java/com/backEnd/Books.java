@@ -44,6 +44,34 @@ public class Books {
         return books.remove(getById(id));
     }
 
+    public List<String> result1() {
+        var result = new ArrayList<String>();
+
+        var books = new ArrayList<Integer>();
+        for (var book : getBooks()) {
+            boolean flag = false;
+            for (var el : books) {
+                if (book.getBookNum() == el) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) books.add(book.getBookNum());
+        }
+
+        for (var el : books) {
+            var i = 0;
+            for (var book : getBooks()) {
+                if (el == book.getBookNum()) {
+                    i += book.getCopyCount();
+                }
+            }
+            result.add(String.format("Book: \"%s\" has %d copies", el, i));
+        }
+
+        return result;
+    } // result 1
+
     public int getCountOfVendors() {
         var vendors = new ArrayList<String>();
         for (var book : getBooks()) {
@@ -76,45 +104,25 @@ public class Books {
         return value / i;
     }
 
-    public List<String> result1(){
-        var result = new ArrayList<String>();
-
-        var books = new ArrayList<Integer>();
-        for (var book : getBooks()) {
-            boolean flag = false;
-            for (var el : books) {
-                if (book.getBookNum() == el) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) books.add(book.getBookNum());
-        }
-
-        for(var el : books){
-            var i = 0;
-            for(var book : getBooks()){
-                if(el == book.getBookNum()){
-                    i += book.getCopyCount();
-                }
-            }
-            result.add(String.format("Book: \"%s\" has %d pcs", el, i));
-        }
-
-        return result;
-    } // result 1
-
     public void removeLessThenAvg() {
         var value = getAvg();
         this.getBooks().removeIf(el -> (el.getCopyCount() < value));
     }
 
-    public Books filter(String type) {
+    public Books filter(String value) {
         var books = new Books();
         for (var el : this.getBooks()) {
-            if (el.getVendorCode().toLowerCase().startsWith(type.toLowerCase())) {
+            if (el.getVendorCode().toLowerCase().startsWith(value.toLowerCase())) {
                 books.add(el);
             }
+        }
+        return books;
+    }
+
+    public Books selectionByMinMaxCopyCounts(int min, int max) {
+        Books books = new Books();
+        for (var el : this.books) {
+            if (el.getCopyCount() > min && el.getCopyCount() < max) books.add(el);
         }
         return books;
     }

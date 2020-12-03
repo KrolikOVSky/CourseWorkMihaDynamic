@@ -45,17 +45,17 @@ public class Header {
 //              Open
                 {
                     openItem.setOnAction(event -> {
-//                        FileChooser fileChooser = new FileChooser();//Класс работы с диалогом выборки и сохранения
-//                        fileChooser.setTitle("Open Database");//Заголовок диалога
-//                        FileChooser.ExtensionFilter extFilter =
-//                                new FileChooser.ExtensionFilter("My Database Files (*"+Global.extension+")", "*" + Global.extension);//Расширение
-//                        fileChooser.getExtensionFilters().addAll(
-//                                extFilter,
-//                                new FileChooser.ExtensionFilter("All Images", "*.*")
-//                        );
-//
-//                        File file = fileChooser.showOpenDialog(Global.primaryStage);//Указываем текущую сцену CodeNote.mainStage
-                            File file = new File("C:\\Users\\Alex\\Desktop\\test_Miha.mydb");
+                        FileChooser fileChooser = new FileChooser();//Класс работы с диалогом выборки и сохранения
+                        fileChooser.setTitle("Open Database");//Заголовок диалога
+                        FileChooser.ExtensionFilter extFilter =
+                                new FileChooser.ExtensionFilter("My Database Files (*"+Global.extension+")", "*" + Global.extension);//Расширение
+                        fileChooser.getExtensionFilters().addAll(
+                                extFilter,
+                                new FileChooser.ExtensionFilter("All Images", "*.*")
+                        );
+
+                        File file = fileChooser.showOpenDialog(Global.primaryStage);//Указываем текущую сцену CodeNote.mainStage
+//                            File file = new File("C:\\Users\\Alex\\Desktop\\test_Miha.mydb");
                         if (file != null) {
                             Global.path = file.getPath();
                             Global.fromFileToList();
@@ -169,7 +169,7 @@ public class Header {
             }
 
             mainMenuBar.getMenus().add(fileMenu);
-            mainMenuBar.getMenus().add(editMenu);
+//            mainMenuBar.getMenus().add(editMenu);
             mainMenuBar.getMenus().add(helpMenu);
         }
     }

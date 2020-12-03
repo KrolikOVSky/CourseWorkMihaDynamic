@@ -11,7 +11,7 @@ public class Run extends Application {
     }
 
     @Override
-    public void start(Stage mainStage) throws Exception {
+    public void start(Stage mainStage) {
         Global.primaryStage.setScene(Global.mainScene);
         Global.primaryStage.setResizable(false);
         Global.primaryStage.setWidth(800);

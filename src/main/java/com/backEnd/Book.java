@@ -19,8 +19,8 @@ public class Book {
         this.copyCount.set(0L);
     }
 
-    public Book(long id, int bookNum, String vendorCode, String month, long copyCount) {
-        this.id.set(id);
+    public Book(int bookNum, String vendorCode, String month, long copyCount) {
+        this.id.set(0L);
         this.bookNum.set(bookNum);
         this.vendorCode.set(vendorCode);
         this.month.set(month);
