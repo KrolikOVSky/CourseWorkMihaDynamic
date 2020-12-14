@@ -15,6 +15,7 @@ public class AboutWindow {
 
     public AboutWindow(){
         this.mainBox = new BorderPane();
+
         var style = "-fx-font-size: 20; -fx-font-family: 'Courier New'; -fx-font-width: bold;";
         var str = "System was developed by student\nAkulov Mikhail Mikhailovich\nfrom IVT/b-19-2-o group\nSevSU - 2020";
 
