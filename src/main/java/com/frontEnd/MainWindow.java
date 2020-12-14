@@ -160,7 +160,7 @@ public class MainWindow {
                             addBox.getChildren().add(commit);
                         }
                         modalWindow.setMainWorkSpace(addBox);
-                        modalWindow.showDialog();
+                        modalWindow.show();
                     }
                 });
                 addBtn.setTooltip(new Tooltip("Add new element\nin the table"));
@@ -193,7 +193,7 @@ public class MainWindow {
                         }
                         ModalWindow modalWindow = new ModalWindow("Result 1");
                         modalWindow.setMainWorkSpace(content);
-                        modalWindow.showDialog();
+                        modalWindow.show();
                     }
                 });
                 resultOneBtn.setTooltip(new Tooltip("Total number of copies\nfor each book"));
@@ -211,7 +211,7 @@ public class MainWindow {
                         content.getChildren().add(new Label(String.format("Total number of vendors is %d", Global.books.getCountOfVendors())));
                         ModalWindow modalWindow = new ModalWindow("Result 2");
                         modalWindow.setMainWorkSpace(content);
-                        modalWindow.showDialog();
+                        modalWindow.show();
                     }
                 });
                 resultTwoBtn.setTooltip(new Tooltip("Total number\nof vendors"));
@@ -229,7 +229,7 @@ public class MainWindow {
                         content.getChildren().add(new Label(String.format("Average quantity of book copies is %f", Global.books.getAvg())));
                         ModalWindow modalWindow = new ModalWindow("Average copy counts");
                         modalWindow.setMainWorkSpace(content);
-                        modalWindow.showDialog();
+                        modalWindow.show();
                     }
                 });
                 averageBtn.setTooltip(new Tooltip("Average quantity\n of book copies"));
@@ -460,7 +460,7 @@ public class MainWindow {
                             editBox.getChildren().add(commit);
                         }
                         modalWindow.setMainWorkSpace(editBox);
-                        modalWindow.showDialog();
+                        modalWindow.show();
                     }
                 });
 

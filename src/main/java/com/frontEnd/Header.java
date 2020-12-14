@@ -154,7 +154,8 @@ public class Header {
 //              Help
                 {
                     helpItem.setOnAction(event -> {
-
+                        HelpWindow window = new HelpWindow();
+                        window.show();
                     });
                     helpItem.setAccelerator(new KeyCodeCombination(KeyCode.F1));
                 }
@@ -162,6 +163,8 @@ public class Header {
 //              About
                 {
                     aboutItem.setOnAction(event -> {
+                        AboutWindow window = new AboutWindow();
+                        window.show();
                     });
                 }
 
