@@ -22,13 +22,15 @@ import static java.lang.Double.MAX_VALUE;
 
 public class MainWindow {
     private static TableView<Book> mainTable;
-    private final TableColumn<Book, Long> bookNumColumn = new TableColumn<Book, Long>("Book ID number");
-    private final TableColumn<Book, String> vendorCodeColumn = new TableColumn<Book, String>("Vendor code");
-    private final TableColumn<Book, String> monthColumn = new TableColumn<Book, String>("Month");
-    private final TableColumn<Book, Long> copyCountColumn = new TableColumn<Book, Long>("Quantity of copies");
+    private final TableColumn<Book, Long> bookNumColumn = new TableColumn<>("Book ID number");
+    private final TableColumn<Book, String> vendorCodeColumn = new TableColumn<>("Vendor code");
+    private final TableColumn<Book, String> monthColumn = new TableColumn<>("Month");
+    private final TableColumn<Book, Long> copyCountColumn = new TableColumn<>("Quantity of copies");
+
     private final VBox controlPanel = new VBox();
     private final Button controlPanelBtn = new Button(">");
     private final BorderPane mainWorkSpace = new BorderPane();
+
     private final Button showAllBtn = new Button("Show all");
     private final Button sortBtn = new Button("Sort");
     private final Button addBtn = new Button("Add");
@@ -41,21 +43,21 @@ public class MainWindow {
 
 
     public MainWindow() {
-        mainTable = new TableView<Book>();
+        mainTable = new TableView<>();
 
         // Create Table
         {
             var width = 185;
-            bookNumColumn.setCellValueFactory(new PropertyValueFactory<Book, Long>("bookNum"));
+            bookNumColumn.setCellValueFactory(new PropertyValueFactory<>("bookNum"));
             bookNumColumn.setPrefWidth(width);
 
-            vendorCodeColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("vendorCode"));
+            vendorCodeColumn.setCellValueFactory(new PropertyValueFactory<>("vendorCode"));
             vendorCodeColumn.setPrefWidth(width);
 
-            monthColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("month"));
+            monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
             monthColumn.setPrefWidth(width);
 
-            copyCountColumn.setCellValueFactory(new PropertyValueFactory<Book, Long>("copyCount"));
+            copyCountColumn.setCellValueFactory(new PropertyValueFactory<>("copyCount"));
             copyCountColumn.setPrefWidth(width);
 
             mainTable.setOnMouseClicked(mouseEvent -> remove(mouseEvent));
@@ -323,8 +325,6 @@ public class MainWindow {
                 controlPanel.setPadding(new Insets(10));
                 controlPanel.setSpacing(10);
                 controlPanel.setPrefWidth(230);
-//                controlPanel.setMaxWidth(200);
-//                controlPanel.setStyle("-fx-background-color: red");
                 controlPanel.setAlignment(Pos.CENTER);
 
                 controlPanel.getChildren().add(caption);

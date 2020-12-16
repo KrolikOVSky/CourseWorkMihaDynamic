@@ -6,9 +6,6 @@ import com.frontEnd.Header;
 import com.frontEnd.MainWindow;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -32,33 +29,6 @@ public class Global {
         workSpace.getChildren().addAll(new Header().getMainMenuBar(), node);
         mainWorkSpace.getChildren().add(workSpace);
         mainScene.setRoot(mainWorkSpace);
-    }
-
-    public static void errorReport(Exception e) {
-        e.printStackTrace();
-        TextArea output = new TextArea();
-        {
-            StringBuilder string = new StringBuilder();
-            var i = 1;
-            for (var el : e.getStackTrace()) {
-                string.append(i).append(") ").append(el).append("\n\n");
-                i++;
-            }
-            output.setText(string.toString());
-        }
-        output.setWrapText(true);
-
-        BorderPane pane = new BorderPane();
-        pane.setTop(new Label("Errors report"));
-        pane.setCenter(output);
-        pane.setBottom(new Label("Short description of error: " + e.getMessage()));
-        Scene scene = new Scene(pane);
-        Stage stage = new Stage();
-        stage.setWidth(400);
-        stage.setHeight(200);
-//        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
     }
 
     public static void fromListToFile() {
@@ -89,7 +59,7 @@ public class Global {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            errorReport(e);
+            e.printStackTrace();
         }
 
         books = new Books();
